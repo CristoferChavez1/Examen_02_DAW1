@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <div style="margin-left: 10%; width: 80%;">
+
+  	<h2>Actualizacion de Datos de Bus</h2>
+
+		<form th:action="@(/grabar)" method="post" th:object="${buses}">
+			
+		 <div class="form-group">
+		  <label for="codigo">Código</label>
+		  <input type="text" class="form-control" id="codigo" placeholder="Codigo de Bus" th:field="*{codigo}">
+		 </div>
+		 <div class="form-group">
+		  <label for="nombre">Nombre</label>
+		  <input type="text" class="form-control" id="nombre" placeholder="Nombre de Bus"
+		   th:field="*{nombre}">
+		 </div>
+		 <!-- -->
+		 <div class="form-row">
+			 <div class	="form-group col-md-4">
+			  <label for="placa">Numero Placa</label>
+			  <input type="number" class="form-control" id="placa" placeholder="Numero de Placa" th:field="*{placa}">
+			 </div>
+			 <div class	="form-group col-md-4">
+			  <label for="capac">Capacidad</label>
+			  <input type="text" class="form-control" id="capac" placeholder="Capacidad de Bus" th:field="*{capc}">
+			 </div>
+		 </div>
+		 <!-- -->  
+		 <div class="form-row">
+		  <div class="form-group col-md-4">
+		   <label>Chofer</label>
+		   <select class="form-control" th:field="*{codchofer}">
+		   <option th:value="-1" th:text="Seleccione"></option>
+			 <option th:value="1" th:text="Lucas"></option>
+			 <option th:value="2" th:text="Mario"></option>
+			 <option th:value="3" th:text="Raul"></option>
+			 <option th:value="4" th:text="Jacinto"></option>
+			  <option th:value="5" th:text="Juan"></option>
+			 </select>
+		 	</div>
+
+		  <div class="form-group col-md-4">
+		   <label>Ruta</label>
+		   <select class="form-control" th:field="*{codruta}">
+		   <option th:value="-1" th:text="Seleccione"></option>
+			 <option th:value="1" th:text="Callao-Lima"></option>
+			 <option th:value="2" th:text="Moche-Lambayeque"></option>
+			 <option th:value="3" th:text="Arequipa-Colca"></option>
+			 <option th:value="4" th:text="Paracas-Ica"></option>
+			 
+			 </select>
+		  </div>
+
+		  <!-- -->
+		  </div>
+		 <button type="submit" class="btn btn-primary" >Actualizar</button>
+		 <a href="/listar" class="btn btn-primary">Consultar</a>
+		</form>  	
+
+  </div>
+
+</body>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>

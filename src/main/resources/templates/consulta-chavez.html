@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Custom Tag -->
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>CyberTurismo - Consulta</title> 
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <div style="margin-left: 20%; width: 60%;">
+    
+    <h1>Consulta de Bus</h1>
+    <div class="container">
+  <a href="/listar" class="btn btn-primary">Consultar</a>    
+  <br>        
+  <br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Código Bus</th>
+        <th>Numero Placa</th>
+        <th>Capacidad</th>
+        <th>Seleccione</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="b : ${lstBus}">
+        <td th:text="${b.codigo}"></td>
+        <td th:text="${b.placa}"></td>
+        <td th:text="${b.capac}"></td>
+        <td>
+            <form action="/editar" method="post">
+                <input type="hidden" name="codigo" th:value="${b.codigo}">
+                <button type="submit" class="btn btn-info">Seleccione</button>
+            </form>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+    
+    </div>
+</body>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
